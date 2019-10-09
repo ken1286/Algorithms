@@ -17,6 +17,21 @@ def find_max_profit(prices):
             elif temp_price > current_max_profit:
                 current_max_profit = temp_price
     return current_max_profit
+    # TODO: Check for solution with 1 for loop using 2 variables
+    # buy_index = 0
+    # sell_index = len(prices)-1
+    # buy = prices[buy_index]
+    # sell = prices[sell_index]
+
+    # while buy_index < sell_index:
+    #     if max_profit < n:
+    #         sell_index -= 1
+    #         sell = prices[sell_index]
+    #         max_profit = sell - buy
+    #     else:
+    #         buy_index += 1
+    #         buy = prices[buy_index]
+    #         if(sell-buy)
 
 
 if __name__ == '__main__':
