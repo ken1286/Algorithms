@@ -8,15 +8,28 @@ def recipe_batches(recipe, ingredients):
     # get lowest amount from all possibilities
     # also check if recipe key exists in ingredients.keys()
 
+    # better solution: eliminate ingredients for loop?
+
+    # possible_batches = []
+    # for rk, rv in recipe.items():
+    #     for ik, iv in ingredients.items():
+    #         if rk == ik:
+    #             # amount = iv // rv
+    #             # print(amount)
+    #             possible_batches.append(iv // rv)
+    #     if rk not in ingredients.keys():
+    #         return 0
+
+    # return min(possible_batches)
+
+    if len(recipe) > len(ingredients):
+        return 0
+    # 2nd solution
     possible_batches = []
-    for rk, rv in recipe.items():
-        for ik, iv in ingredients.items():
-            if rk == ik:
-                amount = iv // rv
-                # print(amount)
-                possible_batches.append(amount)
-        if rk not in ingredients.keys():
-            possible_batches.append(0)
+    for key in recipe:
+        if ingredients[key] >= recipe[key]:
+            possible_batch = ingredients[key] // recipe[key]
+            possible_batches.append(possible_batch)
 
     return min(possible_batches)
 
