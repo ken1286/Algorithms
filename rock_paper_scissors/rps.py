@@ -20,17 +20,27 @@ import sys
 def rock_paper_scissors(n):
     arr = ['rock', 'paper', 'scissors']
     resultArr = []
-    if n >= 1:
-        for item in arr:
-            tempArr = [item]
-            for i in range(0, n):
-                print('first Temp: ', tempArr)
-                tempArr.append(arr[n])
-                resultArr.append(tempArr)
-                print('first Result: ', resultArr)
-                rock_paper_scissors(n-1)
 
+    def helper(rounds_left, results=[]):
+        if rounds_left == 0:
+            resultArr.append(results)
+            return
+        for item in arr:
+            helper(rounds_left-1, results+[item])
+
+    helper(n)
     return resultArr
+    # if n >= 1:
+    #     for item in arr:
+    #         tempArr = [item]
+    #         for i in range(0, n):
+    #             print('first Temp: ', tempArr)
+    #             tempArr.append(arr[n])
+    #             resultArr.append(tempArr)
+    #             print('first Result: ', resultArr)
+    #             rock_paper_scissors(n-1)
+
+    # return resultArr
 
 
 rock_paper_scissors(2)
